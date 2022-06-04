@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculator</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+        .main{
+            text-align: center;
+            margin: auto;
+            margin-top: 100px;
+            width: 15%;
+            height: 20vw;
+            padding: 15px;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            border: 1px solid black;
+            border-radius: 3px;
+            background: skyblue;
+            color: white;
+        }
+        #screen{
+            background: #fff;
+            text-align: center;
+            width: 90%;
+            padding: 10px;
+            border: 1px solid black;
+            border-radius: 2px;
+            box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+            border: none;
+            outline: none;
+        }
+        .numbers{
+            text-align: center;
+            margin: 5px;
+            padding: 14px;
+            box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+            background: #fff;
+            border: 1px solid black;
+            transition: 700ms ease;
+        }
+        #clear{
+            background: #fff;
+            color: black;
+            width: 80%;
+            padding: 8px;
+            border: 1px solid black;
+            border-radius: 2px;
+            box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+        }
+        #clear:hover{
+            cursor: pointer;
+            background: black;
+            color: white;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        }
+        .numbers:hover{
+            background: black;
+            color: white;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <form class="calcuatorform" name="calcuatorform">
+            <div class="screen">
+                <input type="text" name="screen" readonly id="screen">
+            </div>        
+        <div class="btn">
+            <input type="button" class="numbers" name="num9" value="9" onclick="valueButton(this);">
+            <input type="button" class="numbers" name="num8" value="8" onclick="valueButton(this);">
+            <input type="button" class="numbers" name="num7" value="7" onclick="valueButton(this);">
+            <input type="button" class="numbers" name="Plus" value="+" onclick="valueButton(this)">
+        </div>
+        <div class="btn">
+            <input type="button" class="numbers" name="num6" value="6" onclick="valueButton(this);">
+            <input type="button" class="numbers" name="num6" value="5" onclick="valueButton(this);">
+            <input type="button" class="numbers" name="num6" value="4" onclick="valueButton(this);">
+            <input type="button" class="numbers" name="sub" value="-" onclick="valueButton(this);">
+        </div>
+        
+        <div class="btn">
+            <input type="button" class="numbers" name="num3" value="3" onclick="valueButton(this);">
+            <input type="button" class="numbers" name="num2" value="2" onclick="valueButton(this);">
+            <input type="button" class="numbers" name="num1" value="1" onclick="valueButton(this);">
+            <input type="button" class="numbers" name="mul" value="*" onclick="valueButton(this)">
+        </div>
+        <div class="btn">
+            <input type="button" class="numbers" name="equal" value="=" onclick="calcuator(this);">
+            <input type="button" class="numbers" name="div" value="/" onclick="valueButton(this);">
+        </div>
+        <div class="btn">
+            <input type="button" class="numbers" name="clear" value="clear" onclick="clearscreen()" id="clear">
+            </div>
+    </form>
+    </div>
+</body>
+<script>
+    function valueButton(e){
+        calcuatorform.screen.value +=e.value;
+    } 
+    function clearscreen(){
+        calcuatorform.screen.value = null;
+    }
+    function calcuator(){
+        calcuatorform.screen.value = eval(calcuatorform.screen.value)
+    }
+</script>
+</html>
